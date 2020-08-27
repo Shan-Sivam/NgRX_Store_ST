@@ -1,14 +1,14 @@
-import { Component, OnInit } from "@angular/core";
-import { Product } from "src/app/shared/models/product.model";
-import { ProductsFacade } from "../../../store/facades/products.facade";
-import { Observable } from "rxjs";
-import { Router } from "@angular/router";
-import { ShoppingCartFacade } from "src/app/store/facades/shopping-cart.facade";
-import { ShoppingCartItem } from "../../../shared/models/shopping-cart.model";
+import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/shared/models/product.model';
+import { ProductsFacade } from '../../../store/facades/products.facade';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { ShoppingCartFacade } from 'src/app/store/facades/shopping-cart.facade';
+import { ShoppingCartItem } from '../../../shared/models/shopping-cart.model';
 @Component({
-  selector: "app-product-list",
-  templateUrl: "./product-list.component.html",
-  styleUrls: ["./product-list.component.scss"],
+  selector: 'app-product-list',
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
   products$: Observable<Product[]>;
@@ -36,6 +36,6 @@ export class ProductListComponent implements OnInit {
     this.productsFacade.sortProductsByPrice();
   }
   showDetail(product: Product) {
-    this.router.navigate(["/products/product-detail", product.id]);
+    this.router.navigate(['/products/product-detail', product.id]);
   }
 }

@@ -8,23 +8,22 @@ import { ProductSort, Product } from '../../shared/models/product.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductsFacade {
-    constructor(private store: Store<ProductState>) { }
+  constructor(private store: Store<ProductState>) {}
 
-    isLoading$ = this.store.select(products.productsSelectors.getIsLoading);
-    products$ = this.store.select(products.productsSelectors.getSortedList);
+  isLoading$ = this.store.select(products.productsSelectors.getIsLoading);
+  products$ = this.store.select(products.productsSelectors.getSortedList);
 
-    loadProducts() {
-        this.store.dispatch(new productActions.LoadProducts());
-    }
-    sortProductsByPrice() {
-        this.store.dispatch(new productActions.SortProducts());
-    }
+  loadProducts() {
+    this.store.dispatch(new productActions.LoadProducts());
+  }
+  sortProductsByPrice() {
+    this.store.dispatch(new productActions.SortProducts());
+  }
 
-    getProductById(id: string) {
-        debugger
-        return this.store.select(products.productsSelectors.getProductById(id))
-    }
+  getProductById(id: string) {
+    return this.store.select(products.productsSelectors.getProductById(id));
+  }
 }

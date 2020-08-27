@@ -1,9 +1,9 @@
 import {
   ShoppingCartActions,
   ShoppingCartActionTypes,
-} from "../../actions/shopping-cart/shopping-cart.actions";
-import { ShoppingCart } from "src/app/shared/models/shopping-cart.model";
-import { ShoppingCartItem } from "../../../shared/models/shopping-cart.model";
+} from '../../actions/shopping-cart/shopping-cart.actions';
+import { ShoppingCart } from 'src/app/shared/models/shopping-cart.model';
+import { ShoppingCartItem } from '../../../shared/models/shopping-cart.model';
 
 export interface ShoppingCartState {
   items: ShoppingCartItem[];

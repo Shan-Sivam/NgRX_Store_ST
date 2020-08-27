@@ -1,11 +1,11 @@
 import {
   ProductActions,
   ProductActionTypes,
-} from "../../actions/products/products.actions";
-import { Product, ProductSort } from "src/app/shared/models/product.model";
-import { productsMock } from "src/app/mocks/products.mock";
-import { State } from "@ngrx/store";
-import { EntityState, EntityAdapter, createEntityAdapter } from "@ngrx/entity";
+} from '../../actions/products/products.actions';
+import { Product, ProductSort } from 'src/app/shared/models/product.model';
+import { productsMock } from 'src/app/mocks/products.mock';
+import { State } from '@ngrx/store';
+import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 
 export interface ProductState extends EntityState<Product> {
   isLoading: boolean;
@@ -22,7 +22,7 @@ export const initialState: ProductState = adapter.getInitialState({
   isLoading: false,
   isLoaded: false,
   sort: {
-    key: "price",
+    key: 'price',
     order: 1,
   },
 });
@@ -39,7 +39,7 @@ export function productsReducer(
     case ProductActionTypes.LOAD:
       return { ...state, isLoading: true };
     case ProductActionTypes.LOAD_SUCCESS:
-      return adapter.addAll(action.payload, {
+      return adapter.setAll(action.payload, {
         ...state,
         isLoading: false,
         isLoaded: true,

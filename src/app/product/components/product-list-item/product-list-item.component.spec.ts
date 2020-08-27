@@ -8,14 +8,14 @@ describe('ProductListItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductListItemComponent ]
-    })
-    .compileComponents();
+      declarations: [ProductListItemComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ProductListItemComponent);
     component = fixture.componentInstance;
+
     fixture.detectChanges();
   });
 

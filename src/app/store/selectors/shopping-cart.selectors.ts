@@ -1,6 +1,6 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { StoreFeatureNames } from "../enums/store-feature.enum";
-import { ShoppingCartState } from "../reducers/shopping-cart/shopping-cart.reducer";
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { StoreFeatureNames } from '../enums/store-feature.enum';
+import { ShoppingCartState } from '../reducers/shopping-cart/shopping-cart.reducer';
 
 const getShoppingCartState = createFeatureSelector<ShoppingCartState>(
   StoreFeatureNames.SHOPPING_CART

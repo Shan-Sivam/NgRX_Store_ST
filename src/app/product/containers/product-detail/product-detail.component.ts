@@ -1,17 +1,17 @@
-import { Component, OnInit } from "@angular/core";
-import { Product } from "src/app/shared/models/product.model";
-import { Observable } from "rxjs";
-import { ActivatedRoute } from "@angular/router";
-import { ProductsFacade } from "src/app/store/facades/products.facade";
-import { map, take } from "rxjs/operators";
-import { Location } from "@angular/common";
-import { ShoppingCartItem } from "src/app/shared/models/shopping-cart.model";
-import { ShoppingCartFacade } from "src/app/store/facades/shopping-cart.facade";
+import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/shared/models/product.model';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { ProductsFacade } from 'src/app/store/facades/products.facade';
+import { map, take } from 'rxjs/operators';
+import { Location } from '@angular/common';
+import { ShoppingCartItem } from 'src/app/shared/models/shopping-cart.model';
+import { ShoppingCartFacade } from 'src/app/store/facades/shopping-cart.facade';
 
 @Component({
-  selector: "app-product-detail",
-  templateUrl: "./product-detail.component.html",
-  styleUrls: ["./product-detail.component.scss"],
+  selector: 'app-product-detail',
+  templateUrl: './product-detail.component.html',
+  styleUrls: ['./product-detail.component.scss'],
 })
 export class ProductDetailComponent implements OnInit {
   product: Product;
@@ -24,7 +24,7 @@ export class ProductDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.productId = this.route.snapshot.paramMap.get("id");
+    this.productId = this.route.snapshot.paramMap.get('id');
 
     this.productsFacade
       .getProductById(this.productId)

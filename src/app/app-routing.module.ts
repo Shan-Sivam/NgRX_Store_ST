@@ -1,19 +1,19 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { HomeComponent } from "./home/home.component";
-import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "/home", pathMatch: "full" },
-  { path: "home", component: HomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   {
-    path: "products",
+    path: 'products',
     loadChildren: () =>
-      import("./product/product.module").then((m) => m.ProductModule),
+      import('./product/product.module').then((m) => m.ProductModule),
   },
   // { path: "product-detail/:id", component: ProductDetailComponent },
   // { path: "contact", component: ContactComponent },
-  { path: "**", component: PageNotFoundComponent },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

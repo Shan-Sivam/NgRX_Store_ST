@@ -1,9 +1,9 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store";
-import * as fromReducer from "../reducers/products/products.reducer";
-import { ProductState } from "../reducers/products/products.reducer";
-import { StoreFeatureNames } from "../enums/store-feature.enum";
-import { Observable } from "rxjs";
-import { Product } from "src/app/shared/models/product.model";
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import * as fromReducer from '../reducers/products/products.reducer';
+import { ProductState } from '../reducers/products/products.reducer';
+import { StoreFeatureNames } from '../enums/store-feature.enum';
+import { Observable } from 'rxjs';
+import { Product } from 'src/app/shared/models/product.model';
 
 const getProductState = createFeatureSelector<ProductState>(
   StoreFeatureNames.PRODUCTS
@@ -23,7 +23,6 @@ const getIsLoading = createSelector(getState, (state) => state.isLoading);
 
 export const getProductById1 = (id: string) =>
   createSelector(getEntities, (state) => {
-    debugger;
     return state[id];
   });
 
