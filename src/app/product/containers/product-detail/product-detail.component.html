@@ -1,0 +1,46 @@
+<ng-container *ngIf="product">
+  <div class="mt-5">
+    <button (click)="goBack()" class="btn btn-sm btn-primary rounded-pill">
+      <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to Fruit
+    </button>
+  </div>
+
+  <div class="card shadow mt-3">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <img
+            class="card-img-top"
+            src="{{ 'assets/images/' + product.imagePath }}"
+            alt="Card image cap"
+          />
+        </div>
+        <div class="col">
+          <h5 class="card-title">{{ product.name }}</h5>
+
+          <div class="row">
+            <div class="col">
+              <span class="text-primary float-left">
+                {{ product.price | currency: "GBP" }}
+              </span>
+            </div>
+            <div class="col text-right">
+              <a class="btn btn-default" (click)="addToBasket(product)">
+                <img
+                  class="card-img-top text-primary"
+                  height="20"
+                  width="20"
+                  src="assets/images/shopping-basket.svg"
+                  alt="show basket"
+                />
+              </a>
+            </div>
+          </div>
+          <p class="card-text">
+            {{ product.detail }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
