@@ -50,7 +50,10 @@ export function productsReducer(
       return {
         ...state,
         ...{
-          sort: { ...state.sort, ...{ order: state.sort.order === 1 ? 0 : 1 } },
+          sort: {
+            ...state.sort,
+            ...{ key: action.payload, order: 1 },
+          },
         },
       };
     default:

@@ -14,6 +14,7 @@ import { ToastService } from 'src/app/shared/toast.service';
 export class ProductListComponent implements OnInit {
   products$: Observable<Product[]>;
   isLoading$: Observable<boolean>;
+  sortedBy$: Observable<string>;
   constructor(
     private shoppingCartFacade: ShoppingCartFacade,
     private productsFacade: ProductsFacade,
@@ -24,6 +25,7 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.productsFacade.loadProducts();
     this.products$ = this.productsFacade.products$;
+    this.sortedBy$ = this.productsFacade.sortedBy$;
     this.isLoading$ = this.productsFacade.isLoading$;
   }
 
@@ -57,8 +59,11 @@ export class ProductListComponent implements OnInit {
       headertext: 'Shopping Basket',
     });
   }
-  sortProducts() {
+  sortProductByPrice() {
     this.productsFacade.sortProductsByPrice();
+  }
+  sortProductByName() {
+    this.productsFacade.sortProductsByName();
   }
   showDetail(product: Product) {
     this.router.navigate(['/products/product-detail', product.id]);

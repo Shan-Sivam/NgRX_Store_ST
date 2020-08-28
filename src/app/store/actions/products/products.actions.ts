@@ -26,6 +26,7 @@ export class LoadProductsFail implements Action {
 
 export class SortProducts implements Action {
   public readonly type = ProductActionTypes.SORT;
+  constructor(public payload: string) {}
 }
 
 export type ProductActions =

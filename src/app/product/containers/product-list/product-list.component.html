@@ -9,8 +9,20 @@
 
   <ng-container *ngIf="(isLoading$ | async) === false">
     <div class="text-right">
-      Sort by Price:
-      <button type="button" (click)="sortProducts()" class="btn btn-link">
+      <button
+        type="button"
+        [disabled]="(sortedBy$ | async) === 'price'"
+        (click)="sortProductByPrice()"
+        class="btn btn-link"
+      >
+        Sort by Price
+      </button>
+      <button
+        type="button"
+        [disabled]="(sortedBy$ | async) === 'name'"
+        (click)="sortProductByName()"
+        class="btn btn-link"
+      >
         Sort A-Z
       </button>
     </div>

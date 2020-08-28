@@ -26,22 +26,17 @@ const getSortedList = createSelector(
   getShoppingCartItems,
   (list, sort, basketItems) => {
     let result: Product[] = [];
-    if (sort.order === 1) {
-      result = list.sort((a, b) => (a.price > b.price ? 1 : -1));
+    if (sort.key === 'name') {
+      result = list.sort((a, b) => (a.name > b.name ? 1 : -1));
     } else {
       result = list.sort((a, b) => (a.price > b.price ? -1 : 1));
     }
-
-    return result.map((item) => {
-      if (basketItems.find((x) => x.product.id === item.id)) {
-        return { ...item, ...{ added: true } };
-      }
-      return { ...item };
-    });
+    return result;
   }
 );
 
 const getIsLoading = createSelector(getState, (state) => state.isLoading);
+const getSortedBy = createSelector(getState, (state) => state.sort.key);
 
 export const getProductById = (id: string) => {
   return createSelector(
@@ -63,4 +58,5 @@ export const productsSelectors = {
   getIsLoading,
   getSortedList,
   getProductById,
+  getSortedBy,
 };

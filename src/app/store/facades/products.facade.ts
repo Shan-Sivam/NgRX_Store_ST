@@ -15,12 +15,16 @@ export class ProductsFacade {
 
   isLoading$ = this.store.select(products.productsSelectors.getIsLoading);
   products$ = this.store.select(products.productsSelectors.getSortedList);
+  sortedBy$ = this.store.select(products.productsSelectors.getSortedBy);
 
   loadProducts() {
     this.store.dispatch(new productActions.LoadProducts());
   }
   sortProductsByPrice() {
-    this.store.dispatch(new productActions.SortProducts());
+    this.store.dispatch(new productActions.SortProducts('price'));
+  }
+  sortProductsByName() {
+    this.store.dispatch(new productActions.SortProducts('name'));
   }
 
   getProductById(id: string) {
