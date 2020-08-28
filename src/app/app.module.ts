@@ -5,7 +5,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
 import { LayoutComponent } from './shared/layout/layout.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -23,7 +22,6 @@ export const EFFECTS: any[] = [ProductEffects];
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
     LayoutComponent,
     HomeComponent,
     PageNotFoundComponent,
