@@ -4,33 +4,27 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { LayoutComponent } from './shared/layout/layout.component';
+
 import { HomeComponent } from './home/home.component';
-import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { productsReducer } from './store/reducers/products.reducer';
 import { shoppingCartReducer } from './store/reducers/shopping-cart.reducer';
 import { ProductEffects } from './store/effects/product.effects';
-import { ToastComponent } from './shared/toast/toast.component';
+import { SharedModule } from './shared/shared.module';
+import { ProductModule } from './product/product.module';
 
 export const EFFECTS: any[] = [ProductEffects];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    LayoutComponent,
-    HomeComponent,
-    PageNotFoundComponent,
-    ToastComponent,
-  ],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
+    SharedModule,
+    ProductModule,
     StoreModule.forRoot({
       products: productsReducer,
       shoppingCart: shoppingCartReducer,

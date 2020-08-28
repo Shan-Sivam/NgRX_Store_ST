@@ -7,6 +7,8 @@ import { ProductDetailShellComponent } from './containers/product-detail-shell/p
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductListSortComponent } from './components/product-list-sort/product-list-sort.component';
+import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,6 @@ import { ProductListSortComponent } from './components/product-list-sort/product
     ProductListComponent,
     ProductListSortComponent,
   ],
-  imports: [CommonModule, ProductRoutingModule],
+  imports: [CommonModule, RouterModule, ProductRoutingModule, SharedModule],
 })
 export class ProductModule {}
