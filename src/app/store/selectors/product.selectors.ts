@@ -29,7 +29,7 @@ const getSortedList = createSelector(
     if (sort.key === 'name') {
       result = list.sort((a, b) => (a.name > b.name ? 1 : -1));
     } else {
-      result = list.sort((a, b) => (a.price > b.price ? -1 : 1));
+      result = list.sort((a, b) => (a.price > b.price ? 1 : -1));
     }
     return result;
   }
