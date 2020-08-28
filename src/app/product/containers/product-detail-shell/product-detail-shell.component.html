@@ -1,0 +1,11 @@
+<div class="mt-5">
+  <button (click)="goBack()" class="btn btn-sm btn-primary rounded-pill">
+    <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to Fruit
+  </button>
+</div>
+<ng-container *ngIf="product">
+  <app-product-detail
+    [product]="product"
+    (add)="onAdd($event)"
+  ></app-product-detail>
+</ng-container>

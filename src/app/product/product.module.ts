@@ -1,17 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductRoutingModule } from './product-routing.module';
-import { ProductListComponent } from './containers/product-list/product-list.component';
-import { ProductDetailComponent } from './containers/product-detail/product-detail.component';
-import { ProductListItemComponent } from './components/product-list-item/product-list-item.component';
 import { ProductShellComponent } from './containers/product-shell/product-shell.component';
+import { ProductListShellComponent } from './containers/product-list-shell/product-list-shell.component';
+import { ProductDetailShellComponent } from './containers/product-detail-shell/product-detail-shell.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductListSortComponent } from './components/product-list-sort/product-list-sort.component';
 
 @NgModule({
   declarations: [
-    ProductListComponent,
-    ProductDetailComponent,
-    ProductListItemComponent,
     ProductShellComponent,
+    ProductListShellComponent,
+    ProductDetailShellComponent,
+    ProductDetailComponent,
+    ProductListComponent,
+    ProductListSortComponent,
   ],
   imports: [CommonModule, ProductRoutingModule],
 })

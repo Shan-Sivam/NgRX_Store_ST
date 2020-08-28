@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Product } from 'src/app/shared/models/product.model';
-import { ProductSort } from '../../../shared/models/product.model';
+import { ProductSort } from '../../shared/models/product.model';
 
 export enum ProductActionTypes {
   LOAD = '[Product] Get Product',

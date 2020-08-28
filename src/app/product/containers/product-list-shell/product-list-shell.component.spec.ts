@@ -1,14 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProductListComponent } from './product-list.component';
+import { ProductListShellComponent } from './product-list-shell.component';
 import { ShoppingCartFacade } from 'src/app/store/facades/shopping-cart.facade';
 import { of } from 'rxjs';
 import { ProductsFacade } from 'src/app/store/facades/products.facade';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
-describe('ProductListComponent', () => {
-  let component: ProductListComponent;
-  let fixture: ComponentFixture<ProductListComponent>;
+describe('ProductListShellComponent', () => {
+  let component: ProductListShellComponent;
+  let fixture: ComponentFixture<ProductListShellComponent>;
 
   beforeEach(async(() => {
     const routerSpy = jasmine.createSpyObj('Router', ['navigate']); // [2]
@@ -20,7 +20,7 @@ describe('ProductListComponent', () => {
       'loadProducts',
     ]);
     TestBed.configureTestingModule({
-      declarations: [ProductListComponent],
+      declarations: [ProductListShellComponent],
       providers: [
         {
           provide: ShoppingCartFacade,
@@ -40,7 +40,7 @@ describe('ProductListComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProductListComponent);
+    fixture = TestBed.createComponent(ProductListShellComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

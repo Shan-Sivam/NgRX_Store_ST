@@ -1,20 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Product } from 'src/app/shared/models/product.model';
-import { Observable, Subscription, Subject } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
-import { ProductsFacade } from 'src/app/store/facades/products.facade';
-import { map, take, takeUntil } from 'rxjs/operators';
-import { Location } from '@angular/common';
-import { ShoppingCartItem } from 'src/app/shared/models/shopping-cart.model';
+import { Subject } from 'rxjs';
 import { ShoppingCartFacade } from 'src/app/store/facades/shopping-cart.facade';
+import { ProductsFacade } from 'src/app/store/facades/products.facade';
+import { ActivatedRoute } from '@angular/router';
 import { ToastService } from 'src/app/shared/toast.service';
-
+import { takeUntil } from 'rxjs/operators';
+import { ShoppingCartItem } from 'src/app/shared/models/shopping-cart.model';
+import { Location } from '@angular/common';
 @Component({
-  selector: 'app-product-detail',
-  templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.scss'],
+  selector: 'app-product-detail-shell',
+  templateUrl: './product-detail-shell.component.html',
+  styleUrls: ['./product-detail-shell.component.scss'],
 })
-export class ProductDetailComponent implements OnInit {
+export class ProductDetailShellComponent implements OnInit, OnDestroy {
   product: Product;
   productId: string;
   destroyed$ = new Subject<void>();
@@ -35,6 +34,8 @@ export class ProductDetailComponent implements OnInit {
       .subscribe((data: Product) => {
         if (data) {
           this.product = data;
+        } else {
+          this.productsFacade.loadProducts();
         }
       });
   }
@@ -57,7 +58,7 @@ export class ProductDetailComponent implements OnInit {
       headertext: 'Shopping Basket',
     });
   }
-  addToBasket(product: Product) {
+  onAdd(product: Product) {
     const shoppingCartItem: ShoppingCartItem = {
       product,
       quantity: 1,

@@ -7,12 +7,12 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { LayoutComponent } from './shared/layout/layout.component';
 import { HomeComponent } from './home/home.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { productsReducer } from './store/reducers/products/products.reducer';
-import { shoppingCartReducer } from './store/reducers/shopping-cart/shopping-cart.reducer';
+import { productsReducer } from './store/reducers/products.reducer';
+import { shoppingCartReducer } from './store/reducers/shopping-cart.reducer';
 import { ProductEffects } from './store/effects/product.effects';
 import { ToastComponent } from './shared/toast/toast.component';
 

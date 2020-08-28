@@ -1,10 +1,10 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import * as fromReducer from '../reducers/products/products.reducer';
-import { ProductState } from '../reducers/products/products.reducer';
+import * as fromReducer from '../reducers/products.reducer';
+import { ProductState } from '../reducers/products.reducer';
 import { StoreFeatureNames } from '../enums/store-feature.enum';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/shared/models/product.model';
-import { ShoppingCartState } from '../reducers/shopping-cart/shopping-cart.reducer';
+import { ShoppingCartState } from '../reducers/shopping-cart.reducer';
 
 const getProductState = createFeatureSelector<ProductState>(
   StoreFeatureNames.PRODUCTS
@@ -43,11 +43,13 @@ export const getProductById = (id: string) => {
     getEntities,
     getShoppingCartItems,
     (entities, basketItems) => {
-      let item = entities[id];
-      if (basketItems.find((x) => x.product.id === item.id)) {
-        return { ...item, ...{ added: true } };
-      } else {
-        return { ...item, ...{ added: false } };
+      const item = entities[id];
+      if (item) {
+        if (basketItems.find((x) => x.product.id === item.id)) {
+          return { ...item, ...{ added: true } };
+        } else {
+          return { ...item, ...{ added: false } };
+        }
       }
     }
   );

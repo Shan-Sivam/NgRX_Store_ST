@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import * as products from '../selectors/product.selectors';
-import { ProductState } from '../reducers/products/products.reducer';
-import * as productActions from '../actions/products/products.actions';
+import { ProductState } from '../reducers/products.reducer';
+import * as productActions from '../actions/products.actions';
 import { ProductSort, Product } from '../../shared/models/product.model';
 import { Observable } from 'rxjs';
 

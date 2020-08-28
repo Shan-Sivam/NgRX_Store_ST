@@ -1,0 +1,21 @@
+<div class="mt-5">
+  <ng-container *ngIf="isLoading$ | async">
+    <div class="text-center mt-5">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="(isLoading$ | async) === false">
+    <app-product-list-sort
+      [sortedBy]="sortedBy$ | async"
+      (sort)="onSort($event)"
+    ></app-product-list-sort>
+    <app-product-list
+      (add)="onAdd($event)"
+      (detail)="onShowDetail($event)"
+      [products]="products$ | async"
+    ></app-product-list>
+  </ng-container>
+</div>

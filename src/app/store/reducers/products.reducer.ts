@@ -1,7 +1,7 @@
 import {
   ProductActions,
   ProductActionTypes,
-} from '../../actions/products/products.actions';
+} from '../actions/products.actions';
 import { Product, ProductSort } from 'src/app/shared/models/product.model';
 import { productsMock } from 'src/app/mocks/products.mock';
 import { State } from '@ngrx/store';

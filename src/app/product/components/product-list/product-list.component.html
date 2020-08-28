@@ -1,0 +1,45 @@
+<div class="card-deck mt-5">
+  <ng-container *ngFor="let product of products; let num = index">
+    <div class="card shadow">
+      <img
+        (click)="showDetail(product)"
+        class="card-img-top"
+        src="{{ 'assets/images/' + product.imagePath }}"
+        alt="Card image cap"
+      />
+
+      <div class="card-body">
+        <button (click)="showDetail(product)" class="btn btn-link">
+          <h4 class="card-title">
+            {{ product.name }}
+          </h4>
+        </button>
+
+        <p class="card-text ml-2">
+          {{
+            product.detail.length > 100
+              ? (product.detail | slice: 0:100) + '...'
+              : product.detail
+          }}
+        </p>
+
+        <div class="row">
+          <div class="col">
+            <span class="h4 text-danger float-left">
+              {{ product.price | currency: 'GBP' }}
+            </span>
+          </div>
+          <div class="col text-right">
+            <button
+              class="btn btn-success rounded-pill"
+              (click)="addToBasket(product)"
+            >
+              <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

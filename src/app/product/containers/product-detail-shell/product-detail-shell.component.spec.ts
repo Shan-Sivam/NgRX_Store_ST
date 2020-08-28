@@ -1,38 +1,34 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProductDetailComponent } from './product-detail.component';
+import { ProductDetailShellComponent } from './product-detail-shell.component';
 import { ShoppingCartFacade } from 'src/app/store/facades/shopping-cart.facade';
+import { of } from 'rxjs';
 import { ProductsFacade } from 'src/app/store/facades/products.facade';
-import { ActivatedRoute } from '@angular/router';
-import { of, Observable } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ToastService } from 'src/app/shared/toast.service';
 
-describe('ProductDetailComponent', () => {
-  let component: ProductDetailComponent;
-  let fixture: ComponentFixture<ProductDetailComponent>;
-  let shoppingCartFacade: ShoppingCartFacade;
-  let productsFacade: ProductsFacade;
-  let route: ActivatedRoute;
-  let location: Location;
+describe('ProductListShellComponent', () => {
+  let component: ProductDetailShellComponent;
+  let fixture: ComponentFixture<ProductDetailShellComponent>;
+
   beforeEach(async(() => {
+    const shoppingCartFacadeSpy = jasmine.createSpyObj('ShoppingCartFacade', [
+      'addToBasket',
+    ]);
+
+    const toastServiceSpy = jasmine.createSpyObj('ToastService', ['show']);
+
     TestBed.configureTestingModule({
-      declarations: [ProductDetailComponent],
+      declarations: [ProductDetailShellComponent],
       providers: [
         {
           provide: ShoppingCartFacade,
-          useValue: {
-            basketTotal$: of(1),
-          },
+          useValue: shoppingCartFacadeSpy,
         },
         {
           provide: ProductsFacade,
           useValue: {
             getProductById: () => of([]),
-          },
-        },
-        {
-          provide: Location,
-          useValue: {
-            back: () => of([]),
           },
         },
         {
@@ -45,12 +41,16 @@ describe('ProductDetailComponent', () => {
             },
           },
         },
+        {
+          provide: ToastService,
+          useValue: toastServiceSpy,
+        },
       ],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProductDetailComponent);
+    fixture = TestBed.createComponent(ProductDetailShellComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

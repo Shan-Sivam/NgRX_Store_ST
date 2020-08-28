@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ShoppingCartItem } from '../../../shared/models/shopping-cart.model';
+import { ShoppingCartItem } from '../../shared/models/shopping-cart.model';
 
 export enum ShoppingCartActionTypes {
   Add = '[ Shopping Cart ] Add to  shopping cart',

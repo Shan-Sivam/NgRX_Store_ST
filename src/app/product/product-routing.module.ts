@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProductListComponent } from './containers/product-list/product-list.component';
-import { ProductDetailComponent } from './containers/product-detail/product-detail.component';
 import { ProductShellComponent } from './containers/product-shell/product-shell.component';
+import { ProductListShellComponent } from './containers/product-list-shell/product-list-shell.component';
+import { ProductDetailShellComponent } from './containers/product-detail-shell/product-detail-shell.component';
 
 const routes: Routes = [
   {
@@ -11,11 +11,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: ProductListComponent,
+        component: ProductListShellComponent,
       },
       {
         path: 'product-detail/:id',
-        component: ProductDetailComponent,
+        component: ProductDetailShellComponent,
       },
     ],
   },
