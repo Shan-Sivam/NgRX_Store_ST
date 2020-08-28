@@ -37,27 +37,23 @@
           />
 
           <div class="card-body">
-            <h5 class="card-title">{{ product.name }}</h5>
-            <p class="card-text">
+            <button (click)="showDetail(product)" class="btn btn-link">
+              <h4 class="card-title">
+                {{ product.name }}
+              </h4>
+            </button>
+
+            <p class="card-text ml-2">
               {{
                 product.detail.length > 100
                   ? (product.detail | slice: 0:100) + '...'
                   : product.detail
               }}
-              <span class="ml-3">
-                <button
-                  (click)="showDetail(product)"
-                  class="btn btn-sm btn-outline-success rounded-pill"
-                >
-                  <i class="fa fa-info-circle" aria-hidden="true"></i>
-                  Detail
-                </button>
-              </span>
             </p>
 
             <div class="row">
               <div class="col">
-                <span class="text-primary float-left">
+                <span class="h4 text-danger float-left">
                   {{ product.price | currency: 'GBP' }}
                 </span>
               </div>
