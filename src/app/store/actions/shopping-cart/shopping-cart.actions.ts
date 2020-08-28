@@ -11,8 +11,9 @@ export class AddToShoppingCart implements Action {
   public readonly type = ShoppingCartActionTypes.Add;
   constructor(public payload: ShoppingCartItem) {}
 }
+
 export class RemoveFromShoppingCart implements Action {
-  public readonly type = ShoppingCartActionTypes.Add;
+  public readonly type = ShoppingCartActionTypes.Remove;
   constructor(public payload: ShoppingCartItem) {}
 }
 

@@ -15,6 +15,8 @@ import { StoreModule } from '@ngrx/store';
 import { productsReducer } from './store/reducers/products/products.reducer';
 import { shoppingCartReducer } from './store/reducers/shopping-cart/shopping-cart.reducer';
 import { ProductEffects } from './store/effects/product.effects';
+import { ToastComponent } from './shared/toast/toast.component';
+
 export const EFFECTS: any[] = [ProductEffects];
 
 @NgModule({
@@ -25,6 +27,7 @@ export const EFFECTS: any[] = [ProductEffects];
     LayoutComponent,
     HomeComponent,
     PageNotFoundComponent,
+    ToastComponent,
   ],
   imports: [
     BrowserModule,

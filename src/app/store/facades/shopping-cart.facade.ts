@@ -24,4 +24,10 @@ export class ShoppingCartFacade {
       new shoppingCartActions.AddToShoppingCart(shoppingCartItem)
     );
   }
+
+  removeFromBasket(shoppingCartItem: ShoppingCartItem) {
+    this.store.dispatch(
+      new shoppingCartActions.RemoveFromShoppingCart(shoppingCartItem)
+    );
+  }
 }

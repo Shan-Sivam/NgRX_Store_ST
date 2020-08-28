@@ -4,6 +4,7 @@ export class Product {
   detail: string;
   price: number;
   imagePath: string;
+  added?: boolean;
 }
 
 export class ProductSort {

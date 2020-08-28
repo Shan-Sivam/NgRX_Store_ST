@@ -23,6 +23,16 @@ export function shoppingCartReducer(
         ...{ items: [...state.items, action.payload] },
       };
     }
+    case ShoppingCartActionTypes.Remove: {
+      return {
+        ...state,
+        ...{
+          items: state.items.filter(
+            (i) => i.product.id !== action.payload.product.id
+          ),
+        },
+      };
+    }
     default:
       return state;
   }

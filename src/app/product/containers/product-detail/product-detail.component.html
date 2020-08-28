@@ -21,11 +21,11 @@
           <div class="row">
             <div class="col">
               <span class="text-primary float-left">
-                {{ product.price | currency: "GBP" }}
+                {{ product.price | currency: 'GBP' }}
               </span>
             </div>
             <div class="col text-right">
-              <a class="btn btn-default" (click)="addToBasket(product)">
+              <!-- <a class="btn btn-default" (click)="addToBasket(product)">
                 <img
                   class="card-img-top text-primary"
                   height="20"
@@ -33,7 +33,23 @@
                   src="assets/images/shopping-basket.svg"
                   alt="show basket"
                 />
-              </a>
+              </a> -->
+              <button
+                *ngIf="!product.added"
+                class="btn btn-success rounded-pill"
+                (click)="addToBasket(product)"
+              >
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                Add
+              </button>
+              <button
+                *ngIf="product.added"
+                class="btn btn-danger rounded-pill"
+                (click)="removeFromBasket(product)"
+              >
+                <i class="fa fa-times" aria-hidden="true"></i>
+                Remove
+              </button>
             </div>
           </div>
           <p class="card-text">
