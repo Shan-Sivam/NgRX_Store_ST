@@ -15,6 +15,7 @@ import { shoppingCartReducer } from './store/reducers/shopping-cart.reducer';
 import { ProductEffects } from './store/effects/product.effects';
 import { SharedModule } from './shared/shared.module';
 import { ProductModule } from './product/product.module';
+import { BasketModule } from './basket/basket.module';
 
 export const EFFECTS: any[] = [ProductEffects];
 
@@ -25,6 +26,7 @@ export const EFFECTS: any[] = [ProductEffects];
     AppRoutingModule,
     SharedModule,
     ProductModule,
+    BasketModule,
     StoreModule.forRoot({
       products: productsReducer,
       shoppingCart: shoppingCartReducer,

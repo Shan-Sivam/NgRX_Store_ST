@@ -12,12 +12,21 @@ const initialState: ShoppingCartState = {
   items: [],
 };
 
+
 export function shoppingCartReducer(
   state = initialState,
   action: ShoppingCartActions
 ): ShoppingCartState {
   switch (action.type) {
     case ShoppingCartActionTypes.Add: {
+      if(!state.items.findIndex(item => item.product.id == action.payload.product.id)) {
+        // Update Item
+        return {
+          ...state,
+          ...{ items: [...state.items, action.payload] },
+        };  
+      }
+      
       return {
         ...state,
         ...{ items: [...state.items, action.payload] },
