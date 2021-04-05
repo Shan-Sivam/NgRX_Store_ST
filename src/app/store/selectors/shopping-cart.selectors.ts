@@ -12,7 +12,7 @@ const getShoppingCartItems = createSelector(
 );
 const getShoppingCartTotal = createSelector(getShoppingCartState, (state) => {
   return state.items
-    .map((item) => item.product.price)
+    .map((item) => item.product.price * item.quantity )  
     .reduce((prev, curr) => prev + curr, 0);
 });
 

@@ -19,18 +19,33 @@ export function shoppingCartReducer(
 ): ShoppingCartState {
   switch (action.type) {
     case ShoppingCartActionTypes.Add: {
-      if(!state.items.findIndex(item => item.product.id == action.payload.product.id)) {
-        // Update Item
+      
+
+      const newData = state.items.map(obj => {
+        if(obj.product.id  === action.payload.product.id) // check if product already exists 
+           return {
+             ...obj,
+             quantity: obj.quantity + 1
+           }
+        return obj
+      });
+      
+      const index = state.items.findIndex(item => item.product.id == action.payload.product.id);
+      
+      console.log(index);
+
+      if(index == -1) {
         return {
           ...state,
           ...{ items: [...state.items, action.payload] },
         };  
       }
-      
+
       return {
         ...state,
-        ...{ items: [...state.items, action.payload] },
+        ...{items : newData}
       };
+
     }
     case ShoppingCartActionTypes.Remove: {
       return {
