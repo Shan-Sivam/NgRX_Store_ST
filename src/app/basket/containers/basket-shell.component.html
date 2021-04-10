@@ -1,3 +1,8 @@
 <h1>Cart</h1>
 
-<app-basket [items]="cartItems$ | async"></app-basket>
+<app-basket 
+[items]="cartItems$ | async" 
+[total] = "basketTotal$ | async"  
+[totalQuantity] = "quantityCount$ | async"
+(remove) = "onRemove($event)"
+></app-basket>

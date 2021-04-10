@@ -18,6 +18,10 @@ export class ShoppingCartFacade {
   basketTotal$ = this.store.select(
     shoppingCart.shoppingCarSelectors.getShoppingCartTotal
   );
+  quantityCount$ = this.store.select(
+    shoppingCart.shoppingCarSelectors.getShoppingCartQuantityCount
+  );
+
 
   addToBasket(shoppingCartItem: ShoppingCartItem) {
     this.store.dispatch(
