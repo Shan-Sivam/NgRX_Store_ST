@@ -19,7 +19,6 @@ export function shoppingCartReducer(
 ): ShoppingCartState {
   switch (action.type) {
     case ShoppingCartActionTypes.Add: {
-      
 
       const newData = state.items.map(obj => {
         if(obj.product.id  === action.payload.product.id) // check if product already exists 
@@ -31,8 +30,6 @@ export function shoppingCartReducer(
       });
       
       const index = state.items.findIndex(item => item.product.id == action.payload.product.id);
-      
-      console.log(index);
 
       if(index == -1) {
         return {
@@ -57,6 +54,24 @@ export function shoppingCartReducer(
         },
       };
     }
+    case ShoppingCartActionTypes.Update: {
+      const newData = state.items.map(obj => {
+        if(obj.product.id  === action.payload.product.id) // check if product already exists 
+           return {
+             ...obj,
+             quantity: action.payload.quantity
+           }
+        return obj
+      });
+      
+      return {
+        ...state,
+        ...{items : newData}
+      };
+    }
+
+
+
     default:
       return state;
   }

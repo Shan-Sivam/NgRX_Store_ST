@@ -23,6 +23,28 @@ export class BasketShellComponent implements OnInit {
     this.quantityCount$ = this.shoppingCartFacade.quantityCount$; // this.shoppingCartFacade.quantityCount$;
   }
 
+  onUpdate(shoppingCartItem: ShoppingCartItem) {
+    console.log(shoppingCartItem);
+    console.log(`updating basket ${ shoppingCartItem.quantity }`);
+
+    if(shoppingCartItem.quantity < 0) {
+      return;
+    }
+
+    if(shoppingCartItem.quantity == 0) {
+      this.onRemove(shoppingCartItem);
+    }
+    else {
+      this.shoppingCartFacade.updateBasket(shoppingCartItem);
+      this.toastService.show(`${shoppingCartItem.product.name} quantity has been updated`, {
+        classname: 'bg-success text-light',
+        delay: 2000,
+        autohide: true,
+        headertext: 'Shopping Basket',
+      });
+    }
+  }
+
   onRemove(shoppingCartItem: ShoppingCartItem) {
     this.shoppingCartFacade.removeFromBasket(shoppingCartItem);
     const msg = `${shoppingCartItem.product.name} has been removed from cart.`;

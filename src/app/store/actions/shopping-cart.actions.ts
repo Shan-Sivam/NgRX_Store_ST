@@ -5,6 +5,7 @@ import { ShoppingCartItem } from '../../shared/models/shopping-cart.model';
 export enum ShoppingCartActionTypes {
   Add = '[ Shopping Cart ] Add to  shopping cart',
   Remove = '[ Shopping Cart ] Remove from  shopping cart',
+  Update = '[ Shopping Cart ] Update shopping cart'
 }
 
 export class AddToShoppingCart implements Action {
@@ -17,4 +18,10 @@ export class RemoveFromShoppingCart implements Action {
   constructor(public payload: ShoppingCartItem) {}
 }
 
-export type ShoppingCartActions = AddToShoppingCart | RemoveFromShoppingCart;
+export class UpdateQuantity implements Action {
+  public readonly type = ShoppingCartActionTypes.Update;
+  constructor(public payload: ShoppingCartItem) {}
+}
+
+
+export type ShoppingCartActions = AddToShoppingCart | RemoveFromShoppingCart | UpdateQuantity;

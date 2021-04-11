@@ -16,6 +16,7 @@ import { ProductEffects } from './store/effects/product.effects';
 import { SharedModule } from './shared/shared.module';
 import { ProductModule } from './product/product.module';
 import { BasketModule } from './basket/basket.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export const EFFECTS: any[] = [ProductEffects];
 
@@ -23,6 +24,8 @@ export const EFFECTS: any[] = [ProductEffects];
   declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     SharedModule,
     ProductModule,

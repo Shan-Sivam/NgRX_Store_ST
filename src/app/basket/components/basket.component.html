@@ -26,7 +26,7 @@
 						</div>
                         
                         <div class="col-md-2">
-							<input type="text" class="form-control input-sm" [value] ="item.quantity">
+							<input type="number" class="form-control input-sm" [value]= "item.quantity" (change)="updateItem(item, $event)">
 						</div>
 
                         <div class="col-md-2">
